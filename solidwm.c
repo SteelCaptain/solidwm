@@ -2192,6 +2192,7 @@ setup(void)
 		scheme[i] = drw_scm_create(drw, colors[i], alphas[i], ColCount);
 
 	updatebars();
+	updatestatus();
 	updatepreview();
 
 	/* supporting window for NetWMCheck */

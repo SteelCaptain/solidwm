@@ -2,6 +2,7 @@
 
 signal() {
 	xsetroot -name "sigeval:$*"
+	xsetroot -name ""
 }
 
 signal_status() {
@@ -11,7 +12,6 @@ signal_status() {
 if [ $1 == "status" ]; then
 	shift
 	signal_status $@
-	xsetroot -name ""
 	exit 0
 fi
 	
@@ -138,6 +138,4 @@ case $# in
 	exit 1
 	;;
 esac
-
-xsetroot -name ""
 
