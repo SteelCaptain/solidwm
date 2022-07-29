@@ -42,12 +42,15 @@ the DISPLAY environment variable is set correctly, e.g.:
 # Configuration
 
 solidwm aims to be entirely configurable without rebuilding it.
-solidwm can be configured trough xresources.
+
+solidwm can be configured through xresources and its signal interface.
+
 An external keybinding daemon is suggested for lauching external programs.
 
 ## The signal interface
 
-Solidwm can receive signals through the root window name, and the solidwmc script serves as a wrapper.
+The solidwmc script serves as a wrapper for the signal interface.
+
 To set the bar status text run the following command:
 
 	solidwmc status "your status text here"
