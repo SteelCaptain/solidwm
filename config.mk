@@ -1,7 +1,7 @@
 
 # solidwm make configuration
 
-VERSION = 0.2
+VERSION = 0.2.1
 
 PREFIX = /usr/local
 
