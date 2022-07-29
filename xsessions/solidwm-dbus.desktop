@@ -1,0 +1,6 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=solidwm(dbus)
+Comment=solidwm window manager
+Exec=dbus-run-session solidwm
+Type=XSession
