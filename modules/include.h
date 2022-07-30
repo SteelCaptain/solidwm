@@ -30,6 +30,7 @@
 #include "togglefullscreen.h"
 #include "vanitygaps.h"
 #include "xresources.h"
+#include "profiles.h"
 
 /* Layout modules */
 #include "layout_flextile-deluxe.h"

@@ -2839,10 +2839,17 @@ zoom(const Arg *arg)
 int
 main(int argc, char *argv[])
 {
-	if (argc == 2 && !strcmp("-v", argv[1]))
-		die("solidwm-"VERSION);
-	else if (argc != 1)
-		die("usage: solidwm [-v]");
+	for(int i=1;i<argc;i++) {
+		if(strcmp(argv[i],"-V")==0)
+			die("solidwm-"VERSION);
+		else if((strcmp(argv[i],"-p")==0||strcmp(argv[i],"--profile")==0) && i<argc-1) {
+			strcpy(profilename,argv[++i]);
+		}else if((strcmp(argv[i],"-d")==0||strcmp(argv[i],"--profiledir")==0) && i<argc-1) {
+			strcpy(profiledir,argv[++i]);
+		}else
+			die("usage: solidwm [-p/--profile profile] [-d/--profiledir profile directory] [-V version]");
+	}
+	
 	if (!setlocale(LC_CTYPE, "") || !XSupportsLocale())
 		fputs("warning: no locale support\n", stderr);
 	if (!(dpy = XOpenDisplay(NULL)))

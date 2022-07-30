@@ -30,7 +30,7 @@
 #include "xresources.c"
 #include "dragmfact.c"
 #include "seamless_restart.c"
-#include "hooks.c"
+#include "profiles.c"
 
 /* Layout modules */
 #include "layout_flextile-deluxe.c"
