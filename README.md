@@ -8,6 +8,7 @@ solidwm is a fast and simple dynamic window manager that is designed to get out 
 * Dynamic window layouts with advanced management
 * Xresources compatibility
 * GLava compatibility
+* Profile functionality
 
 # Requirements
 In order to build solidwm you need:
