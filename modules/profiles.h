@@ -4,6 +4,7 @@ static char profiledir[1024] = "~/.config/solidwm/"; /* default profile director
 static char profilepath[2048];
 static char profilesetupcmd[2128];
 static char profilecmd[2128];
+static int useprofiles = 1;
 
 static void setuphook(void);
 static void startuphook(void);

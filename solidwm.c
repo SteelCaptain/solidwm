@@ -391,6 +391,8 @@ static int xerror(Display *dpy, XErrorEvent *ee);
 static int xerrordummy(Display *dpy, XErrorEvent *ee);
 static int xerrorstart(Display *dpy, XErrorEvent *ee);
 static void zoom(const Arg *arg);
+inline static void printusage(void);
+inline static void printversion(void);
 
 /* bar functions */
 
@@ -2836,18 +2838,34 @@ zoom(const Arg *arg)
 	pop(c);
 }
 
+static void printusage(void){
+	puts("\
+usage: solidwm [-p/--profile profile] [-d/--profiledir profile directory]\n\
+               [-n/--noprofile noprofile] [-V/--version version] [-h/--help help]");
+	exit(0);
+}
+
+static void printversion(void){
+	puts("solidwm-"VERSION);
+	exit(0);
+}
+
 int
 main(int argc, char *argv[])
 {
 	for(int i=1;i<argc;i++) {
-		if(strcmp(argv[i],"-V")==0)
-			die("solidwm-"VERSION);
+		if(strcmp(argv[i],"-V")==0||strcmp(argv[i],"--version")==0)
+			printversion();
 		else if((strcmp(argv[i],"-p")==0||strcmp(argv[i],"--profile")==0) && i<argc-1) {
 			strcpy(profilename,argv[++i]);
 		}else if((strcmp(argv[i],"-d")==0||strcmp(argv[i],"--profiledir")==0) && i<argc-1) {
 			strcpy(profiledir,argv[++i]);
+		}else if(strcmp(argv[i],"-n")==0||strcmp(argv[i],"--noprofile")==0) {
+			useprofiles = 0;
+		}else if(strcmp(argv[i],"-h")==0||strcmp(argv[i],"--help")==0) {
+			printusage();
 		}else
-			die("usage: solidwm [-p/--profile profile] [-d/--profiledir profile directory] [-V version]");
+			printusage();
 	}
 	
 	if (!setlocale(LC_CTYPE, "") || !XSupportsLocale())

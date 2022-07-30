@@ -1,6 +1,6 @@
-# solidwm
+# SolidWM
 
-solidwm is a fast and simple dynamic window manager that is designed to get out of the way.
+SolidWM is a fast and fully featured dynamic window manager.
 
 # Features
 * Bar with complete functionality (systray,hiding windows,transparency)
@@ -9,9 +9,11 @@ solidwm is a fast and simple dynamic window manager that is designed to get out 
 * Xresources compatibility
 * GLava compatibility
 * Profile functionality
+* Restart functionality
+* High degree of compatibility with graphical programs and toolkits
 
 # Requirements
-In order to build solidwm you need:
+In order to build SolidWM you need:
 * Xorg libraries:
     * libX11
     * xcb
@@ -23,28 +25,28 @@ In order to build solidwm you need:
 
 Edit config.mk to suit your system.
 
-Run the following command to build and install solidwm:
+Run the following command to build and install SolidWM:
 
     make clean install
 
-# Running solidwm
+# Running SolidWM
 
-Add the following line to your .xinitrc to start solidwm using startx:
+Add the following line to your .xinitrc to start SolidWM using startx:
 
     exec solidwm
 
 xsession files are installed for XDG compliant display managers such as lightdm or GDM.
 
-In order to connect solidwm to a specific display, make sure that
+In order to connect SolidWM to a specific display, make sure that
 the DISPLAY environment variable is set correctly, e.g.:
 
     DISPLAY=:1 exec solidwm
 
 # Configuration
 
-solidwm aims to be entirely configurable without rebuilding it.
+SolidWM aims to be entirely configurable without rebuilding it.
 
-solidwm can be configured through xresources and its signal interface.
+SolidWM can be configured through xresources and its signal interface.
 
 An external keybinding daemon is suggested for lauching external programs.
 
@@ -55,6 +57,21 @@ The solidwmc script serves as a wrapper for the signal interface.
 To set the bar status text run the following command:
 
 	solidwmc status "your status text here"
+
+## The profile system
+
+By default SolidWM will create a directory in ```~/.config``` from which it will execute certain scripts at runtime in certain moments.
+
+SolidWM defaults to ```~/.config/solidwm``` for the profile directory path and ```default``` for the profile name.
+
+SolidWM can run the following hooks in the profile directory:
+* setup -> after SolidWM passes all sanity checks
+* startup -> after SolidWM is fully initialised
+* exit -> when SolidWM receives the quit signal
+
+Note: These scripts are not forked, errors in the scripts may cause SolidWM to not start or exit properly!
+
+Consult the ```examples``` directory for more information.
 
 # Credits
 
