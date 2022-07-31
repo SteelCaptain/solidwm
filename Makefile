@@ -36,11 +36,12 @@ install: all
 	cp -f xsessions/* /usr/share/xsessions
 	chmod 755 ${DESTDIR}${PREFIX}/bin/solidwm
 	chmod 755 ${DESTDIR}${PREFIX}/bin/solidwmc
+	mkdir -p ~/.config/solidwm/default
+	cp -rn examples/profile/* ~/.config/solidwm/default
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/solidwm
 	rm -f ${DESTDIR}${PREFIX}/bin/solidwmc
 	rm -f /usr/share/xsessions/solidwm.desktop
-	rm -f /usr/share/xsessions/solidwm-dbus.desktop
 
 .PHONY: all options clean install uninstall

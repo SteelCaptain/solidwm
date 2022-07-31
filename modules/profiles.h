@@ -9,4 +9,4 @@ static int useprofiles = 1;
 static void setuphook(void);
 static void startuphook(void);
 static void exithook(void);
-
+static void externalhook(const Arg *arg);

@@ -58,18 +58,26 @@ To set the bar status text run the following command:
 
 	solidwmc status "your status text here"
 
-## The profile system
+## The hooking system
 
-By default SolidWM will create a directory in ```~/.config``` from which it will execute certain scripts at runtime in certain moments.
+By default SolidWM will create a directory in ```~/.config``` from which it will execute certain files at runtime in certain moments. These files can be scripts, symlinks and any kind of executable.
 
 SolidWM defaults to ```~/.config/solidwm``` for the profile directory path and ```default``` for the profile name.
 
-SolidWM can run the following hooks in the profile directory:
+SolidWM will run the following hooks in the profile directory:
 * setup -> after SolidWM passes all sanity checks
 * startup -> after SolidWM is fully initialised
 * exit -> when SolidWM receives the quit signal
 
 Note: These scripts are not forked, errors in the scripts may cause SolidWM to not start or exit properly!
+
+Additionally SolidWM can run hooks when a keybinding is detected via the externalhook function, e.g.:
+
+	{ MODKEY, XK_d, externalhook, {.v = "launcher"} }
+
+This will run ~/.config/solidwm/default/launcher when MODKEY+d is pressed.
+
+Note: External hooks are forked as processes.
 
 Consult the ```examples``` directory for more information.
 

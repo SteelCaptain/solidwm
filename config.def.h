@@ -218,6 +218,8 @@ static const Layout layouts[] = {
 
 static Key keys[] = {
 	/* modifier                     key            function                argument */
+	{ MODKEY,                       XK_d,          externalhook,           {.v = "launcher"} },
+	{ MODKEY,                       XK_Return,     externalhook,           {.v = "terminal"} },
 	{ MODKEY,                       XK_g,          togglebar,              {0} },
 	{ MODKEY,                       XK_j,          focusstack,             {.i = +1 } },
 	{ MODKEY,                       XK_k,          focusstack,             {.i = -1 } },
