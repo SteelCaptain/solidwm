@@ -1,3 +1,4 @@
 config.h
 solidwm
 *.o
+*.swp
